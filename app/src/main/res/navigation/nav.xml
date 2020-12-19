@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/allOilsFragment">
+
+    <fragment
+        android:id="@+id/addNewItem"
+        android:name="com.sweed.saunameet.additem.AddOilFragment"
+        android:label="add_new_item_fragment"
+        tools:layout="@layout/add_oil_fragment" >
+        <action
+            android:id="@+id/action_addNewItem_to_allOilsFragment"
+            app:destination="@id/allOilsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allOilsFragment"
+        android:name="com.sweed.saunameet.allIOils.AllOilsFragment"
+        android:label="AllOilsFragment"
+        tools:layout="@layout/all_oils_fragment">
+        <action
+            android:id="@+id/action_allOilsFragment_to_addNewItem"
+            app:destination="@id/addNewItem" />
+    </fragment>
+</navigation>

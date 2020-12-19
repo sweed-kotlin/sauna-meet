@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Sauna-Meet</string>
+    <string name="done_string">DONE</string>
+    <string name="new_oil_name_hint">Enter Oil\'s Name</string>
+    <string name="new_item_text">New Oil</string>
+</resources>

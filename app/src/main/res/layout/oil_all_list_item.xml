@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="oil"
+            type="com.sweed.saunameet.database.Oil" />
+
+        <variable
+            name="clickListener"
+            type="com.sweed.saunameet.allIOils.OilItemListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/oil_item_image"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:contentDescription="Sauna Icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{() -> clickListener.onClick(oil)}"
+            app:srcCompat="@drawable/add_icon_24" />
+
+        <TextView
+            android:id="@+id/oil_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/item_header_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/oil_item_image"
+            tools:text="NewItem" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

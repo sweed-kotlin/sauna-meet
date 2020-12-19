@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Button Styles -->
+    <style name="GoButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/purple_200</item>
+        <item name="colorControlHighlight">@color/purple_500</item>
+        <item name="android:textColor">@color/white_text_color</item>
+        <item name="colorAccent">@color/purple_700</item>
+    </style>
+
+</resources>
