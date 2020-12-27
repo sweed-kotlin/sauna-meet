@@ -3,31 +3,34 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    
+
     <data>
         <variable
-            name="addOilViewModel"
-            type="com.sweed.saunameet.additem.AddOilViewModel" />
+            name="oilDetailsViewModel"
+            type="com.sweed.saunameet.oildetails.OilDetailsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".additem.AddOilFragment">
+        tools:context=".oildetails.OilDetailsViewModel">
 
-        <EditText
-            android:id="@+id/saunaNameEditText"
+        <!--            app:textname="@{oilDetailsViewModel.oil}"-->
+
+        <TextView
+            android:id="@+id/saunaNameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:ems="10"
-            android:hint="@string/new_oil_name_hint"
-            android:inputType="textPersonName"
-            app:editname="@{addOilViewModel.oil}"
+            android:textAlignment="center"
+            android:textSize="@dimen/item_header_text_size"
+            app:textname="@{oilDetailsViewModel.oil}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Oil Name" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -37,34 +40,48 @@
             android:layout_marginTop="12dp"
             android:background="#231F1F"
             android:padding="@dimen/photo_padding"
-            app:oilimage="@{addOilViewModel.oil}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/saunaNameEditText" />
-<!--        android:src="@drawable/ic_sauna_meet_logo"-->
+            app:layout_constraintTop_toBottomOf="@id/saunaNameText"
+            app:oilimage="@{oilDetailsViewModel.oil}" />
+        <!--        android:src="@drawable/ic_sauna_meet_logo"-->
+        <!--        -->
 
         <RatingBar
             android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:oilrating="@{addOilViewModel.oil}"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:oilrating="@{oilDetailsViewModel.oil}"
+
+        app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/backButton"
             style="@style/GoButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/done_string"
-            android:enabled="@{addOilViewModel.addButtonVisible}"
-            android:onClick="@{()-> addOilViewModel.onAddNewOil()}"
+            android:onClick="@{()-> oilDetailsViewModel.onBack()}"
+            android:text="@string/back_string"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/deleteButton"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+        <Button
+            android:id="@+id/deleteButton"
+            style="@style/GoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()-> oilDetailsViewModel.onDelete()}"
+            android:text="@string/delete_string"
+            app:layout_constraintBaseline_toBaselineOf="@+id/backButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/backButton" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

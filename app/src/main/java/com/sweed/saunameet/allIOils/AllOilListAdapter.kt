@@ -55,5 +55,5 @@ class AllOilListAdapter(val clickListener: OilItemListener) :
 }
 
 class OilItemListener(val clickListener: (oil: Oil) -> Unit) {
-    fun onClick(oil: Oil) = if (oil.isAddButton) clickListener(oil) else null
+    fun onClick(oil: Oil) = clickListener(oil)
 }

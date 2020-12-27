@@ -1,10 +1,7 @@
 package com.sweed.saunameet.database
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 
 @Dao
 interface OilDatabaseDao {
@@ -15,10 +12,19 @@ interface OilDatabaseDao {
     @Update
     suspend fun update(oil: Oil)
 
-    @Query("SELECT * from ${Oil.TABLE_NAME} WHERE ${Oil.ID} = :key")
-    suspend fun get(key: Long): Oil?
+    @Query("SELECT * from ${Oil.TABLE_NAME} WHERE ${Oil.ID} = :key ORDER BY id DESC LIMIT 1")
+    fun get(key: Long): LiveData<Oil>
 
-    @Query("SELECT * from ${Oil.TABLE_NAME} WHERE ${Oil.NAME} = :name")
+    @Query("SELECT * from ${Oil.TABLE_NAME} WHERE ${Oil.ID} = :key ORDER BY id DESC LIMIT 1")
+    fun getById(key: Long): Oil?
+
+    @Query("DELETE FROM ${Oil.TABLE_NAME} WHERE ${Oil.ID} = :key")
+    fun deleteById(key: Long)
+
+    @Delete
+    suspend fun delete(oil: Oil)
+
+    @Query("SELECT * from ${Oil.TABLE_NAME} WHERE ${Oil.NAME} = :name ORDER BY id DESC LIMIT 1")
     suspend fun getOilByName(name: String): Oil?
 
     //    /**

@@ -46,9 +46,15 @@ class AllOilsFragment : Fragment() {
         binding.allOilsViewModel = allOilsViewModel
         binding.setLifecycleOwner(this)
 
-        val adapter = AllOilListAdapter(OilItemListener { oilId ->
-            this.findNavController().navigate(AllOilsFragmentDirections.actionAllOilsFragmentToAddNewItem())
+        val adapter = AllOilListAdapter(OilItemListener { oil ->
+            if (oil.isAddButton){
+                this.findNavController().navigate(AllOilsFragmentDirections.actionAllOilsFragmentToAddNewItem())
+            }else {
+//                here i need to transfer my oilitem to the detail view
+                allOilsViewModel.onOilClicked(oil.oilId)
+            }
         })
+
 
         allOilsViewModel.oils.observe(viewLifecycleOwner, Observer { oils ->
 //            Log.i("AllOils" ,"${oils}")
@@ -59,6 +65,13 @@ class AllOilsFragment : Fragment() {
                     adapter.submitList(oils)
                 }
             } 
+        })
+
+        allOilsViewModel.navigateToOilDetail.observe(viewLifecycleOwner, Observer { oilId ->
+            oilId?.let {
+                this.findNavController().navigate(AllOilsFragmentDirections.actionAllOilsFragmentToOilDetails(oilId))
+                allOilsViewModel.onOilDetailNavigated()
+            }
         })
 
 

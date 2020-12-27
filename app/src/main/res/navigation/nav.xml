@@ -9,7 +9,7 @@
         android:id="@+id/addNewItem"
         android:name="com.sweed.saunameet.additem.AddOilFragment"
         android:label="add_new_item_fragment"
-        tools:layout="@layout/add_oil_fragment" >
+        tools:layout="@layout/add_oil_fragment">
         <action
             android:id="@+id/action_addNewItem_to_allOilsFragment"
             app:destination="@id/allOilsFragment" />
@@ -21,6 +21,24 @@
         tools:layout="@layout/all_oils_fragment">
         <action
             android:id="@+id/action_allOilsFragment_to_addNewItem"
-            app:destination="@id/addNewItem" />
+            app:destination="@id/addNewItem"
+            app:enterAnim="@anim/slide_in_left" />
+        <action
+            android:id="@+id/action_allOilsFragment_to_oilDetails"
+            app:destination="@id/oilDetails"
+            app:enterAnim="@anim/slide_in_left" />
+    </fragment>
+    <!--    app:popEnterAnim="@anim/slide_in_right"  -->
+    <fragment
+        android:id="@+id/oilDetails"
+        android:name="com.sweed.saunameet.oildetails.OilDetailsFragment"
+        android:label="OilDetails"
+        tools:layout="@layout/oil_details_fragment">
+        <argument
+            android:name="oilKey"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_oilDetails_to_allOilsFragment"
+            app:destination="@id/allOilsFragment" />
     </fragment>
 </navigation>

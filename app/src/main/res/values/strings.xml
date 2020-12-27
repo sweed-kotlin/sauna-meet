@@ -3,4 +3,17 @@
     <string name="done_string">DONE</string>
     <string name="new_oil_name_hint">Enter Oil\'s Name</string>
     <string name="new_item_text">New Oil</string>
+    <string name="back_string">Back</string>
+    <string name="delete_string">Delete</string>
+    <string name="login_text">LOGIN</string>
+    <string name="register_text">REGISTER</string>
+    <string name="username_hint">Enter Username...</string>
+    <string name="password_hint">Enter Password...</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="sign_out_text">Sign Out</string>
 </resources>

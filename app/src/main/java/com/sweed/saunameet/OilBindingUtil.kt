@@ -9,19 +9,35 @@ import com.sweed.saunameet.R
 import com.sweed.saunameet.database.Oil
 
 
-@BindingAdapter("editname")
-fun EditText.setEditName(oil: Oil) {
-    setText(oil.name)
+@BindingAdapter("textname")
+fun TextView.setOilName(oil: Oil?) {
+    oil?.let {
+        text = oil.name
+    }
+
 }
 
-@BindingAdapter("oirating")
-fun RatingBar.setSleepQualityString(oil: Oil) {
-    rating = oil.rating
+@BindingAdapter("editname")
+fun EditText.setEditName(oil: Oil?) {
+    oil?.let {
+        setText(oil.name)
+    }
+
+}
+
+@BindingAdapter("oilrating")
+fun RatingBar.setSleepQualityString(oil: Oil?) {
+    oil?.let {
+        rating = oil.rating
+    }
 }
 
 @BindingAdapter("oilimage")
-fun ImageView.setOilImage(item: Oil) {
-    setImageResource(R.drawable.ic_sauna_meet_logo)
+fun ImageView.setOilImage(oil: Oil?) {
+    oil?.let {
+        setImageResource(R.drawable.ic_sauna_meet_logo)
+    }
+
 //    setImageResource(when (item.sleepQuality) {
 //        0 -> R.drawable.ic_sleep_0
 //        1 -> R.drawable.ic_sleep_1
