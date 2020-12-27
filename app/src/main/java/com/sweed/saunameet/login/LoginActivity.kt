@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginViewModel: LoginViewModel
     private lateinit var oAuth: OAuthUtil
 
-    private lateinit var username_editText: EditText
+    private lateinit var username_display_text: TextView
     private lateinit var googleSignInButton: SignInButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login_google)
 
         googleSignInButton = findViewById<SignInButton>(R.id.sign_in_button_g)
-        username_editText = findViewById<EditText>(R.id.username_g_text)
+        username_display_text = findViewById<TextView>(R.id.username_display_text)
 
         googleSignInButton.setSize(SignInButton.SIZE_ICON_ONLY)
     }
@@ -65,7 +65,9 @@ class LoginActivity : AppCompatActivity() {
         if (mGoogleApiClient == null) {
 //          Update your UI to display the Google Sign-in button.
 //          updateUI(account)
-            username_editText.setText("", TextView.BufferType.EDITABLE)
+//            username_editText.setText("", TextView.BufferType.EDITABLE)
+            username_display_text.text = ""
+            username_display_text.visibility = View.GONE
             googleSignInButton.visibility = View.VISIBLE
 
         } else {
@@ -82,7 +84,9 @@ class LoginActivity : AppCompatActivity() {
                 val personId = acct.id
                 val personPhoto: Uri? = acct.photoUrl
 
-                username_editText.setText(acct.displayName, TextView.BufferType.EDITABLE)
+//                username_editText.setText(acct.displayName, TextView.BufferType.EDITABLE)
+                username_display_text.text = acct.displayName
+                username_display_text.visibility = View.VISIBLE
                 googleSignInButton.visibility = View.GONE
             }
 //          GoogleSignInAccount --> user has already signed-in
@@ -108,7 +112,9 @@ class LoginActivity : AppCompatActivity() {
             val account = completedTask.getResult(ApiException::class.java)
 
 
-            username_editText.setText(account?.displayName, TextView.BufferType.EDITABLE)
+//            username_editText.setText(account?.displayName, TextView.BufferType.EDITABLE)
+            username_display_text.text = account?.displayName
+            username_display_text.visibility = View.VISIBLE
             googleSignInButton.visibility = View.GONE
 
 
@@ -119,7 +125,8 @@ class LoginActivity : AppCompatActivity() {
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.w("handleSignInResult", "signInResult:failed code=" + e.statusCode)
 
-            username_editText.setText("", TextView.BufferType.EDITABLE)
+            username_display_text.text = ""
+            username_display_text.visibility = View.GONE
             googleSignInButton.visibility = View.VISIBLE
 
 //            updateUI(null)
