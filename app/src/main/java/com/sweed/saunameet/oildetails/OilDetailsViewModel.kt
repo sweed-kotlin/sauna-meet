@@ -13,7 +13,7 @@ class OilDetailsViewModel(
 
     val database = dataSource
 
-    private val oil: LiveData<Oil>
+    private var oil: LiveData<Oil>
     fun getOil() = oil
 
     private val _onBackToOverviewEvent = MutableLiveData<Boolean?>()
@@ -26,12 +26,25 @@ class OilDetailsViewModel(
 
 
     init {
-        Log.i("init", "$oilKey")
         oil = database.get(oilKey)
     }
 
     fun onBack() {
         _onBackToOverviewEvent.value = true
+    }
+
+     fun onFavorite() {
+         var favOil = oil.value
+
+
+         favOil?.let {
+             favOil.favorite = favOil.favorite.not()
+             viewModelScope.launch {
+                 database.update(favOil)
+                 oil = database.get(oilKey)
+
+             }
+         }
     }
 
     fun onDelete() {

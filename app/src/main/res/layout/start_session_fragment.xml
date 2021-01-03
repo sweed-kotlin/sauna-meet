@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="startSessionViewModel"
+            type="com.sweed.saunameet.session.StartSessionViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ConstraitLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".session.StartSessionFragment">
+
+        <SeekBar
+            android:id="@+id/moodSeekbar"
+            style="@style/Widget.AppCompat.SeekBar.Discrete"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="16dp"
+            android:max="4"
+            android:progress="@{startSessionViewModel.progress}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/moodIcon" />
+
+        <ImageView
+            android:id="@+id/moodIcon"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:moodImage="@{startSessionViewModel.progress}" />
+
+        <TextView
+            android:id="@+id/moodDisplayText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{startSessionViewModel.selectedMood}"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/moodSeekbar"
+            tools:text="@string/mood_samle_text" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/mood_header_string"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <Button
+            android:id="@+id/continueToSelectNumberButton"
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
+            android:layout_marginBottom="@dimen/next_button_lower_margin"
+            android:backgroundTint="@color/green_background_color"
+            android:text="@string/next_string"
+            android:textColor="#FFFFFF"
+            android:textColorHighlight="@color/light_gray_vg"
+            android:textColorHint="@color/light_gray_vg"
+            android:textColorLink="@color/colorAccent"
+            android:textSize="20sp"
+            android:onClick="@{() -> startSessionViewModel.onNextEvent()}"
+            app:icon="@drawable/oils_24"
+            app:iconGravity="end"
+            app:iconTint="@color/green_highlight_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

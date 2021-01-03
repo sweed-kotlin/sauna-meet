@@ -18,31 +18,51 @@
 
         <!--            app:textname="@{oilDetailsViewModel.oil}"-->
 
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintTop_toBottomOf="@+id/saunaNameText"
+            tools:layout_editor_absoluteX="162dp" />
+
         <TextView
             android:id="@+id/saunaNameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="34dp"
             android:ems="10"
-            android:textAlignment="center"
+            android:textAlignment="viewStart"
             android:textSize="@dimen/item_header_text_size"
-            app:textname="@{oilDetailsViewModel.oil}"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:textname="@{oilDetailsViewModel.oil}"
             tools:text="Oil Name" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/favoriteOilIcon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="@{()-> oilDetailsViewModel.onFavorite()}"
+            app:favoriteImage="@{oilDetailsViewModel.oil}"
+           />
+
+        <ImageView
+            android:id="@+id/oilImage"
             android:layout_width="0dp"
             android:layout_height="300dp"
             android:layout_margin="@dimen/border_margin"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:background="#231F1F"
             android:padding="@dimen/photo_padding"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/saunaNameText"
+            app:layout_constraintTop_toBottomOf="@+id/saunaNameText"
             app:oilimage="@{oilDetailsViewModel.oil}" />
         <!--        android:src="@drawable/ic_sauna_meet_logo"-->
         <!--        -->
@@ -52,24 +72,68 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:oilrating="@{oilDetailsViewModel.oil}"
-
-        app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/oilImage"
+            app:oilrating="@{oilDetailsViewModel.oil}" />
+
+
+        <TextView
+            android:id="@+id/createdAtLabelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/created_at_label"
+            app:layout_constraintEnd_toStartOf="@+id/createdAtValueText"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+
+        <TextView
+            android:id="@+id/createdAtValueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBaseline_toBaselineOf="@+id/createdAtLabelText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/createdAtLabelText"
+            app:oilcreatedat="@{oilDetailsViewModel.oil}"
+            tools:text="24.02.1992" />
+
+        <TextView
+            android:id="@+id/lastUsedlabelText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/last_used_labe"
+            app:layout_constraintStart_toStartOf="@+id/createdAtLabelText"
+            app:layout_constraintTop_toBottomOf="@+id/createdAtLabelText" />
+
+        <TextView
+            android:id="@+id/lastUsedValueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lastUsedlabelText"
+            app:layout_constraintStart_toEndOf="@+id/lastUsedlabelText"
+            app:layout_constraintStart_toStartOf="@+id/createdAtValueText"
+            app:oillastused="@{oilDetailsViewModel.oil}"
+            tools:text="@string/last_used_default_string" />
+
 
         <Button
             android:id="@+id/backButton"
             style="@style/GoButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:onClick="@{()-> oilDetailsViewModel.onBack()}"
             android:text="@string/back_string"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/deleteButton"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
+            app:layout_constraintTop_toBottomOf="@+id/lastUsedlabelText" />
 
         <Button
             android:id="@+id/deleteButton"
@@ -82,6 +146,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/backButton" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

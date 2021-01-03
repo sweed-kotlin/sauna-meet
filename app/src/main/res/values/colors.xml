@@ -26,4 +26,15 @@
     <color name="grey_button_color">#606060</color>
     <color name="white_text_color">#ffffff</color>
     <color name="light_gray_vg">#BEBEBE</color>
+
+<!--   App Theme Colors -->
+    <color name="colorPrimaryDark">@color/selected_red_color</color>
+    <color name="colorAccent">@color/logo_dark_gray</color>
+
+<!--    Analogous Color Light Blue-->
+    <color name="very_pale_cyan_color">#d6f8ff</color>
+    <color name="very_pale_blue_color">#d6e4ff</color>
+    <color name="pale_cyan_lime_green_color">#d6fff2</color>
+
+
 </resources>

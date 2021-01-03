@@ -10,10 +10,34 @@
     <string name="username_hint">Enter Username...</string>
     <string name="password_hint">Enter Password...</string>
     <string name="title_activity_login">LoginActivity</string>
-    <!--
-    This string is used for square devices and overridden by hello_world in
-    values-round/strings.xml for round devices.
-    -->
-    <string name="hello_world">Hello Square World!</string>
+
+<!--    Fragment Titles     -->
+    <string name="add_new_item_string">Add new Oil</string>
+    <string name="all_oils_string">Oil Overview</string>
+    <string name="oil_details_string">Details</string>
+    <string name="meet_overview_string">Meet</string>
+    <string name="new_session_string">New Session</string>
+
+
     <string name="sign_out_text">Sign Out</string>
+    <string name="meet_menu_string">Meet</string>
+    <string name="oils_menu_string">Oils</string>
+    <string name="session_menu_string">Session</string>
+    <string name="mood_samle_text">Sleepy</string>
+    <string name="neutral_mood_string">Neutral</string>
+    <string name="excited_mood_string">Excited</string>
+    <string name="content_mood_string">Content</string>
+    <string name="sad_mood_string">Sad</string>
+    <string name="sleepy_mood_string">Sleepy</string>
+    <string name="mood_header_string">How are you feeling today?</string>
+    <string name="next_string">Next ▶</string>
+    <string name="last_oil_used_header">Recently used</string>
+    <string name="favorite_oil_header">Favorites</string>
+    <string name="all_oils_header">All Oils</string>
+    <string name="created_at_label">Created at</string>
+    <string name="last_used_labe">Last used</string>
+    <string name="last_used_default_string">Never</string>
+    <string name="infusion_header_string">How many infusions?</string>
+    <string name="infusion_selection_header_string">Select your Oils</string>
+    <string name="start_string">Start</string>
 </resources>

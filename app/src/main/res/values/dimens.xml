@@ -2,7 +2,7 @@
 <resources>
     <dimen name="border_margin">16dp</dimen>
     <dimen name="photo_padding">6dp</dimen>
-    <dimen name="item_header_text_size">16sp</dimen>
+    <dimen name="item_header_text_size">24sp</dimen>
     <!--
     Because the window insets on round devices are larger than 15dp, this padding only applies
     to square screens.
@@ -15,4 +15,6 @@
     inner_frame_layout_padding (below variable) on round screens.
     -->
     <dimen name="inner_frame_layout_padding">5dp</dimen>
+    <dimen name="next_button_lower_margin">50dp</dimen>
+    <dimen name="oil_list_height_dim">140dp</dimen>
 </resources>

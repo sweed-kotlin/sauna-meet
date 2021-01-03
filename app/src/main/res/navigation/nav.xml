@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- TODO AddOil and Delete POP
+Merge navigation from 2 activities with login activity and fix pop when added Oil was deleted!
+also make it impossible to go back to the add-screen after adding!
+-->
+
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav"
-    app:startDestination="@id/allOilsFragment">
+    app:startDestination="@id/startSessionFragment">
 
     <fragment
         android:id="@+id/addNewItem"
         android:name="com.sweed.saunameet.additem.AddOilFragment"
-        android:label="add_new_item_fragment"
+        android:label="@string/add_new_item_string"
         tools:layout="@layout/add_oil_fragment">
         <action
             android:id="@+id/action_addNewItem_to_allOilsFragment"
@@ -17,7 +23,7 @@
     <fragment
         android:id="@+id/allOilsFragment"
         android:name="com.sweed.saunameet.allIOils.AllOilsFragment"
-        android:label="AllOilsFragment"
+        android:label="@string/all_oils_string"
         tools:layout="@layout/all_oils_fragment">
         <action
             android:id="@+id/action_allOilsFragment_to_addNewItem"
@@ -32,7 +38,7 @@
     <fragment
         android:id="@+id/oilDetails"
         android:name="com.sweed.saunameet.oildetails.OilDetailsFragment"
-        android:label="OilDetails"
+        android:label="@string/oil_details_string"
         tools:layout="@layout/oil_details_fragment">
         <argument
             android:name="oilKey"
@@ -41,4 +47,34 @@
             android:id="@+id/action_oilDetails_to_allOilsFragment"
             app:destination="@id/allOilsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/meetOverviewFragment"
+        android:name="com.sweed.saunameet.meet.MeetOverviewFragment"
+        android:label="@string/meet_overview_string"
+        tools:layout="@layout/meet_overview_fragment" />
+    <fragment
+        android:id="@+id/startSessionFragment"
+        android:name="com.sweed.saunameet.session.StartSessionFragment"
+        android:label="@string/new_session_string"
+        tools:layout="@layout/start_session_fragment" >
+        <action
+            android:id="@+id/action_startSessionFragment_to_infusionNumberSelectionFragment"
+            app:destination="@id/infusionNumberSelectionFragment"
+            app:popUpTo="@id/startSessionFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/infusionNumberSelectionFragment"
+        android:name="com.sweed.saunameet.session.InfusionNumberSelectionFragment"
+        android:label="InfusionNumberSelectionFragment"
+        tools:layout="@layout/infusion_number_selection_fragment">
+        <action
+            android:id="@+id/action_infusionNumberSelectionFragment_to_selectInfusionOilsFragment"
+            app:destination="@id/selectInfusionOilsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectInfusionOilsFragment"
+        android:name="com.sweed.saunameet.session.SelectInfusionOilsFragment"
+        android:label="SelectInfusionOilsFragment"
+        tools:layout="@layout/select_infusion_oils_fragment"/>
 </navigation>

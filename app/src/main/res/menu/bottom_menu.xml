@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/startSessionFragment"
+        android:icon="@drawable/sauna_24"
+        android:title="@string/session_menu_string" />
+    <item
+        android:id="@+id/allOilsFragment"
+        android:icon="@drawable/oils_24"
+        android:title="@string/oils_menu_string" />
+    <item
+        android:id="@+id/meetOverviewFragment"
+        android:icon="@drawable/group_24"
+        android:title="@string/meet_menu_string" />
+</menu>
