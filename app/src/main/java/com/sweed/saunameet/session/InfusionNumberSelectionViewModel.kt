@@ -1,8 +1,11 @@
 package com.sweed.saunameet.session
 
+import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 
 // Number Picker Ref>
 // zoftino.com/android-number-picker-tutorial
@@ -19,7 +22,8 @@ class InfusionNumberSelectionViewModel : ViewModel() {
     val onNextButtonEvent: LiveData<Boolean>
         get() = _onNextButtonEvent
 
-    fun onNextEvent() {
+    fun onNextEvent2() {
+        Log.i("button","execute!")
         _onNextButtonEvent.value = true
     }
 
@@ -28,4 +32,14 @@ class InfusionNumberSelectionViewModel : ViewModel() {
     }
 
 
+}
+
+class InfusionNumberSelectionViewModelFactory() : ViewModelProvider.Factory {
+    @Suppress("unchecked_cast")
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(InfusionNumberSelectionViewModel::class.java)) {
+            return InfusionNumberSelectionViewModel() as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
 }

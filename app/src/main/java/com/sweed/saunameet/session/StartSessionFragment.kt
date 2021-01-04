@@ -42,14 +42,16 @@ class StartSessionFragment : Fragment(), IOnBackPressed {
             ).get(StartSessionViewModel::class.java)
 
         startSessionViewModel.onNextButtonEvent.observe(viewLifecycleOwner, Observer {
-            Log.i("onNextButtonEvent", "${this.findNavController()}")
-            if (mayNavigate()){
+
+            if (it == true) {
                 this.findNavController()
                     .navigate(StartSessionFragmentDirections.actionStartSessionFragmentToInfusionNumberSelectionFragment())
                 startSessionViewModel.doneNavigating()
             }
-
-
+//            Log.i("onNextButtonEvent", "${this.findNavController()}")
+//            if (mayNavigate()){
+//
+//            }
         })
 
         binding.moodSeekbar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {

@@ -38,6 +38,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/infusionSelectionHeaderText" />
 
+<!--TODO             android:onClick="@{() -> infusionSelectionViewModel.onNextEvent2()}"
+-->
         <Button
             android:id="@+id/continueToSelectOilsButton"
             android:layout_width="wrap_content"
@@ -47,7 +49,6 @@
             android:text="@string/next_string"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
-            android:onClick="@{() -> infusionSelectionViewModel.onNextEvent()}"
             app:icon="@drawable/oils_24"
             app:iconGravity="end"
             app:iconTint="@color/green_highlight_color"

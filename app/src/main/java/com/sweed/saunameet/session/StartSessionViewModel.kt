@@ -17,8 +17,8 @@ class StartSessionViewModel(val application: Application) : ViewModel() {
     val progress: LiveData<Int?>
         get() = _progress
 
-    private var _onNextButtonEvent = MutableLiveData<Boolean>()
-    val onNextButtonEvent: LiveData<Boolean>
+    private var _onNextButtonEvent = MutableLiveData<Boolean?>()
+    val onNextButtonEvent: LiveData<Boolean?>
         get() = _onNextButtonEvent
 
 

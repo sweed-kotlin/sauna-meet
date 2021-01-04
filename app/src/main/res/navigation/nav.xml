@@ -59,9 +59,7 @@ also make it impossible to go back to the add-screen after adding!
         tools:layout="@layout/start_session_fragment" >
         <action
             android:id="@+id/action_startSessionFragment_to_infusionNumberSelectionFragment"
-            app:destination="@id/infusionNumberSelectionFragment"
-            app:popUpTo="@id/startSessionFragment"
-            app:popUpToInclusive="true" />
+            app:destination="@id/infusionNumberSelectionFragment" />
     </fragment>
     <fragment
         android:id="@+id/infusionNumberSelectionFragment"

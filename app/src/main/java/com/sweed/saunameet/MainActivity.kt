@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
 
 
         bottom_nav.setOnNavigationItemSelectedListener { item ->
-            Log.i("setOnNavigationItemSelectedListener", "$item")
+//            Log.i("setOnNavigationItemSelectedListener", "$item")
             onNavDestinationSelected(item, Navigation.findNavController(this, R.id.nav_host_fragment))
         }
 
@@ -95,11 +95,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val fragment =
-            this.supportFragmentManager.findFragmentById(R.id.startSessionFragment)
-        (fragment as? IOnBackPressed)?.onBackPressed()?.not()?.let {
-            super.onBackPressed()
-        }
+        super.onBackPressed()
+//        Todo Fix this bug
+//        val fragment =
+//            this.supportFragmentManager.findFragmentById(R.id.startSessionFragment)
+//        (fragment as? IOnBackPressed)?.onBackPressed()?.not()?.let {
+//            super.onBackPressed()
+//        }
     }
 
 
