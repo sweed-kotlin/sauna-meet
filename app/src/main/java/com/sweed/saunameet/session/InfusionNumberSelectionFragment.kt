@@ -1,7 +1,6 @@
 package com.sweed.saunameet.session
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,13 +12,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.sweed.saunameet.R
-import com.sweed.saunameet.additem.AddOilFragmentDirections
 import com.sweed.saunameet.databinding.InfusionNumberSelectionFragmentBinding
-import com.sweed.saunameet.databinding.OilDetailsFragmentBinding
 
 
 class InfusionNumberSelectionFragment : Fragment() {
-
 
 
     private lateinit var infusionNumberSelectionViewModel: InfusionNumberSelectionViewModel
@@ -36,38 +32,35 @@ class InfusionNumberSelectionFragment : Fragment() {
 
         infusionNumberSelectionViewModelFactory = InfusionNumberSelectionViewModelFactory()
 
-        infusionNumberSelectionViewModel = ViewModelProvider(this, infusionNumberSelectionViewModelFactory).get(InfusionNumberSelectionViewModel::class.java)
+        infusionNumberSelectionViewModel =
+            ViewModelProvider(this, infusionNumberSelectionViewModelFactory).get(InfusionNumberSelectionViewModel::class.java)
 
 //        Todo Strange Bug, onClick never calls ViewModel method?!
-//        infusionNumberSelectionViewModel.onNextButtonEvent.observe(viewLifecycleOwner, Observer {
-//
-//            if (it == true) {
-//                this.findNavController()
-//                    .navigate(InfusionNumberSelectionFragmentDirections.actionInfusionNumberSelectionFragmentToSelectInfusionOilsFragment())
-//                infusionNumberSelectionViewModel.doneNavigating()
-//            }
-//        })
+        infusionNumberSelectionViewModel.onNextButtonEvent.observe(viewLifecycleOwner, Observer {
 
-        binding.continueToSelectOilsButton.setOnClickListener {
-            this.findNavController()
-                .navigate(InfusionNumberSelectionFragmentDirections.actionInfusionNumberSelectionFragmentToSelectInfusionOilsFragment())
-            infusionNumberSelectionViewModel.doneNavigating()
-        }
+            if (it == true) {
+                this.findNavController()
+                    .navigate(InfusionNumberSelectionFragmentDirections.actionInfusionNumberSelectionFragmentToSelectInfusionOilsFragment())
+                infusionNumberSelectionViewModel.doneNavigating()
+            }
+        })
+        //      TODO remove hack for ViewModel failure
+        binding.continueToSelectOilsButton.setOnClickListener(infusionNumberSelectionViewModel::onClickHaXX)
 
-//        val np: NumberPicker = binding.numberPicker
-//
-//        np.minValue = 1
-//        np.maxValue = 10
-//
-//        np.setOnValueChangedListener { numberPicker: NumberPicker, i: Int, i1: Int ->
-//            Toast.makeText(context,
-//                "selected number "+numberPicker.getValue(), Toast.LENGTH_SHORT).show()
-//        };
+
+        val np: NumberPicker = binding.numberPicker
+
+        np.minValue = 1
+        np.maxValue = 10
+
+        np.setOnValueChangedListener { numberPicker: NumberPicker, i: Int, i1: Int ->
+            Toast.makeText(
+                context,
+                "selected number " + numberPicker.getValue(), Toast.LENGTH_SHORT
+            ).show()
+        };
         return binding.root
     }
 
-    fun onClick(){
-
-    }
 
 }

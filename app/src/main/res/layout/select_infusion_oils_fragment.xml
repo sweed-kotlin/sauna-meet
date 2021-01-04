@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout>
 
     <data>
 
         <variable
-            name="selectInfusionOilsViewModel"
+            name="selectOilsVM"
             type="com.sweed.saunameet.session.SelectInfusionOilsViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+
         android:id="@+id/ConstraitLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,16 +30,21 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
+        <!-- TODO
+        android:onClick="@{() -> selectOilsVM.onStartEvent()}"-->
+
         <Button
-            android:id="@+id/continueToInfusionButton"
+            android:id="@+id/startInfusionsButton"
             android:layout_width="wrap_content"
             android:layout_height="90dp"
             android:layout_marginBottom="@dimen/next_button_lower_margin"
-            android:backgroundTint="@color/logo_middel_gray"
-            android:text="@string/next_string"
+            android:backgroundTint="@color/green_background_color"
+            android:text="@string/start_string"
+            android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:icon="@drawable/sauna_24"
             app:iconGravity="end"
+            app:iconTint="@color/green_highlight_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

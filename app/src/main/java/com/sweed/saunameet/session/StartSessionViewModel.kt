@@ -1,13 +1,17 @@
 package com.sweed.saunameet.session
 
 import android.app.Application
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.sweed.saunameet.R
-import com.sweed.saunameet.database.Oil
-import kotlinx.coroutines.launch
+
+const val DEFAULT_PROGRESS = 2
 
 class StartSessionViewModel(val application: Application) : ViewModel() {
-    //
+
+
     //resources : Resources
     private val _selectedMood = MutableLiveData<String?>()
     val selectedMood: LiveData<String?>
@@ -23,8 +27,9 @@ class StartSessionViewModel(val application: Application) : ViewModel() {
 
 
     init {
-        _progress.value = 3
-        selectionChanged(3)
+
+        _progress.value = DEFAULT_PROGRESS
+        selectionChanged(DEFAULT_PROGRESS)
     }
 
     fun onNextEvent() {

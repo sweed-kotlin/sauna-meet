@@ -2,6 +2,7 @@ package com.sweed.saunameet.session
 
 import android.app.Application
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -22,9 +23,12 @@ class InfusionNumberSelectionViewModel : ViewModel() {
     val onNextButtonEvent: LiveData<Boolean>
         get() = _onNextButtonEvent
 
-    fun onNextEvent2() {
-        Log.i("button","execute!")
+    fun onNextEvent() {
         _onNextButtonEvent.value = true
+    }
+
+    fun onClickHaXX(v: View)  {
+        onNextEvent()
     }
 
     fun doneNavigating() {
